@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NerdyTabs - Smart Tab Management</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #4B69FF;
+            --primary-mint: #7FFFD4;
+            --hover-blue: #3A50CC;
+            --dark-bg: #1E1B26;
+            --light-text: #FFFFFF;
+            --border-color: #2D2B35;
+            --card-bg: #2D2B35;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border-color);
+            position: fixed;
+            width: 100%;
+            background: rgba(30, 27, 38, 0.95);
+            backdrop-filter: blur(12px);
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo i {
+            font-size: 32px;
+            color: var(--primary-mint);
+        }
+
+        .logo span {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-mint));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Enhanced Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(127, 255, 212, 0.1), transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-mint));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #9E9E9E;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-mint));
+            color: var(--dark-bg);
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(127, 255, 212, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(127, 255, 212, 0.3);
+        }
+
+        .cta-button i {
+            font-size: 24px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: var(--card-bg);
+        }
+
+        .features-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 60px;
+        }
+
+        .features-header h2 {
+            font-size: 36px;
+            color: var(--primary-mint);
+            margin-bottom: 20px;
+        }
+
+        .features-header p {
+            color: #9E9E9E;
+            font-size: 18px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--dark-bg);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-mint);
+            box-shadow: 0 8px 24px rgba(127, 255, 212, 0.1);
+        }
+
+        .feature-card i {
+            font-size: 36px;
+            color: var(--primary-mint);
+            margin-bottom: 24px;
+        }
+
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            color: var(--light-text);
+        }
+
+        .feature-card p {
+            color: #9E9E9E;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Enhanced Footer */
+        footer {
+            padding: 60px 0 40px;
+            text-align: center;
+            background: var(--dark-bg);
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary-mint), transparent);
+        }
+
+        .coffee-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: #FFDD00;
+            color: #000000;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 24px;
+            box-shadow: 0 4px 12px rgba(255, 221, 0, 0.2);
+        }
+
+        .coffee-button:hover {
+            transform: translateY(-2px);
+            background: #FFE44D;
+            box-shadow: 0 6px 16px rgba(255, 221, 0, 0.3);
+        }
+
+        .coffee-button i {
+            font-size: 20px;
+            color: #000000;
+        }
+
+        footer p {
+            color: #9E9E9E;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 40px;
+            }
+
+            .hero {
+                padding: 140px 0 80px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-card {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <i class="material-icons">tab</i>
+                    <span>NerdyTabs</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Smart Tab Management for Power Users</h1>
+                <p>Take control of your browser tabs with intelligent categorization, automatic grouping, and powerful organization features.</p>
+                <a href="#" class="cta-button">
+                    <i class="material-icons">add_circle</i>
+                    Add to Chrome
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="features-header">
+                <h2>Powerful Features</h2>
+                <p>Everything you need to take control of your browser tabs and boost your productivity.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="material-icons">auto_awesome</i>
+                    <h3>Smart Categorization</h3>
+                    <p>Automatically categorizes your tabs based on content, making organization effortless.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="material-icons">folder</i>
+                    <h3>Auto Grouping</h3>
+                    <p>Groups similar tabs together and automatically adds new tabs to the right group.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="material-icons">cleaning_services</i>
+                    <h3>Duplicate Detection</h3>
+                    <p>Identifies similar tabs and helps you clean up your browser workspace.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="material-icons">insights</i>
+                    <h3>Tab Analytics</h3>
+                    <p>Get insights about your tab usage and browsing patterns.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Made with ❤️ by a fellow tab hoarder</p>
+            <a href="https://www.buymeacoffee.com/YOUR_USERNAME" target="_blank" class="coffee-button">
+                <i class="material-icons">coffee</i>
+                Buy me a coffee
+            </a>
+        </div>
+    </footer>
+</body>
+</html>

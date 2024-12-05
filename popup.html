@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NerdyTabs</title>
+  <link rel="stylesheet" href="popup.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <i class="material-icons logo-icon">tab</i>
+      <h1>NerdyTabs</h1>
+      <a href="https://www.buymeacoffee.com/YOUR_USERNAME" target="_blank" class="coffee-button">
+        <i class="material-icons">coffee</i>
+        <span>Buy me a coffee</span>
+      </a>
+    </div>
+    
+    <div id="mainContent">
+      <div class="actions">
+        <div class="action-button" id="groupTabs">
+          <i class="material-icons">folder</i>
+          <span>Group Tabs</span>
+          <span class="shortcut" id="groupShortcut">Alt+A</span>
+        </div>
+        <div class="action-button" id="ungroupTabs">
+          <i class="material-icons">folder_off</i>
+          <span>Ungroup All</span>
+          <span class="shortcut" id="ungroupShortcut">Alt+S</span>
+        </div>
+        <div class="action-button" id="suggestClosures">
+          <i class="material-icons">cleaning_services</i>
+          <span>Suggest Tab Closures</span>
+        </div>
+        <div class="action-button" id="showAnalytics">
+          <i class="material-icons">insights</i>
+          <span>Tab Analytics</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="resultsContainer" style="display: none;">
+      <button id="backButton" class="back-button">
+        <i class="material-icons">arrow_back</i>
+        <span>Back</span>
+      </button>
+      <div id="results" class="results">
+        <!-- Results will be displayed here -->
+      </div>
+    </div>
+  </div>
+  
+  <div id="toast" class="toast"></div>
+  <script src="popup.js"></script>
+</body>
+</html> 
